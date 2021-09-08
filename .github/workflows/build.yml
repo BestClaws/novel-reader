@@ -9,27 +9,28 @@ jobs:
       with:
         path: main
         submodules: true
+    
     - name: Update
       run: sudo apt-get update
+    
     - name: Install Dependencies
       run: sudo apt-get install --assume-yes wine-stable wine64 python3-pip
+    
     - name: Checkout makelove
       uses: actions/checkout@v2
       with:
         repository: pfirsich/makelove
         path: makelove
+    
     - name: Install makelove
       run:
         pip3 install ./makelove
+    
     - name: Build
       run: cd main/novel-reader && python3 -m makelove
-    - name: view artifact names
-      run: |
-        sudo apt install --assume-yes tree
-        tree -L 10
-        pwd
-    - name: Artifact (Win32)
+      
+    - name: Upload Win32 Executable Artifact.
       uses: actions/upload-artifact@v2
       with:
-        name: build win64 artifact
+        name: Novel Reader
         path: main/build/win32/Novel Reader-win32.zip
