@@ -1,4 +1,4 @@
-name = "NovelReader"
+name = "Novel Reader"
 default_targets = ["win32"]
 build_directory = "build"
 
@@ -21,7 +21,7 @@ icon_file = "./assets/app_logo.png"
 [windows.exe_metadata]
 FileDescription = "Read Novels, VN Style."
 FileVersion = "0.1"
-OriginalFilename = "NovelReader.exe" 
+OriginalFilename = "Novel Reader.exe" 
 
 
 
