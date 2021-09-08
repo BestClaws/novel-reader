@@ -19,10 +19,6 @@ icon_file = "./assets/app_logo.png"
 # source = destination
 # source is game root dir.
 # destination is root dir in archived zip
-"savedata.txt" = "savedata.txt"
-"assets/book_files/compile.py" = "compile.py"
-"assets/book_files/book.txt" = "book.txt"
-"assets/book_files/compiled_book.txt" = "compiled_book.txt"
 
 
 [windows.exe_metadata]

@@ -27,7 +27,7 @@ jobs:
         pip3 install ./makelove
     
     - name: Build
-      run: cd main/novel-reader && python3 -m makelove
+      run: cd "main/Novel Reader" && python3 -m makelove
       
     - name: Upload Win32 Executable Artifact.
       uses: actions/upload-artifact@v2
