@@ -28,8 +28,8 @@ jobs:
         sudo apt install --assume-yes tree
         tree -L 10
         pwd
-    - name: Artifact (Win64)
+    - name: Artifact (Win32)
       uses: actions/upload-artifact@v2
       with:
         name: build win64 artifact
-        path: main/build/win64/Novel Reader.exe
+        path: main/build/win32/Novel Reader-win32.zip

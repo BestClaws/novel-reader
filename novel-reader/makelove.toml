@@ -1,6 +1,6 @@
 name = "Novel Reader"
 default_targets = ["win32"]
-build_directory = "build"
+build_directory = "../build"
 
 love_files = [
     "+*",
