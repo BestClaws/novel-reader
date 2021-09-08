@@ -1,0 +1,29 @@
+name = "NovelReader"
+default_targets = ["win32"]
+build_directory = "build"
+
+love_files = [
+    "+*",
+    "-./.git/*",
+    "-./.github/*",
+    "-./dist/*",
+    "-./makelove.toml"    
+]
+
+icon_file = "./assets/app_logo.png"
+
+
+[windows]
+
+[archive_files]
+"savedata.txt" = "savedata.txt"
+
+[windows.exe_metadata]
+FileDescription = "Read Novels, VN Style."
+FileVersion = "0.1"
+OriginalFilename = "NovelReader.exe" 
+
+
+
+
+
