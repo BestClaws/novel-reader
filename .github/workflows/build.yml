@@ -24,7 +24,7 @@ jobs:
     - name: Build
       run: cd main/novel-reader && python3 -m makelove
     - name: view artifact names
-    - run: |
+      run: |
         sudo apt install --assume-yes tree
         tree -L 10
         pwd
