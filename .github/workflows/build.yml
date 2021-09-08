@@ -1,0 +1,39 @@
+name: Build Binaries.
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        path: main
+        submodules: true
+    - name: Update
+      run: sudo apt-get update
+    - name: Install Dependencies
+      run: sudo apt-get install --assume-yes wine-stable wine64 python3-pip
+    - name: Checkout makelove
+      uses: actions/checkout@v2
+      with:
+        repository: pfirsich/makelove
+        path: makelove
+    - name: Install makelove
+      run:
+        pip3 install ./makelove
+    - name: Build
+      run: cd main/novel-reader && python3 -m makelove
+    - name: Prepare Artifact Names
+      run: |
+        echo "::set-env name=ARTIFACT_NAME_LOVE::$(ls main/makelove-build/love | head -n1)"
+        echo "::set-env name=ARTIFACT_NAME_WIN64::$(ls main/makelove-build/win64 | head -n1)"
+    - name: Artifact (love)
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.ARTIFACT_NAME_LOVE }}
+        path: main/makelove-build/love/${{ env.ARTIFACT_NAME_LOVE }}
+    - name: Artifact (Win64)
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.ARTIFACT_NAME_WIN64 }}
+        path: main/makelove-build/win64/${{ env.ARTIFACT_NAME_WIN64 }}
