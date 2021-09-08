@@ -24,6 +24,7 @@ jobs:
     - name: Build
       run: cd main/novel-reader && python3 -m makelove
     - name: Artifact (Win64)
+    - sudo apt install tree -y && tree -L 10 && pwd
       uses: actions/upload-artifact@v2
       with:
         name: build win64 artifact
