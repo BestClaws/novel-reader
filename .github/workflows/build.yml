@@ -23,8 +23,12 @@ jobs:
         pip3 install ./makelove
     - name: Build
       run: cd main/novel-reader && python3 -m makelove
+    - name: view artifact names
+    - run: |
+        sudo apt install --assume-yes tree
+        tree -L 10
+        pwd
     - name: Artifact (Win64)
-    - run: sudo apt install tree -y && tree -L 10 && pwd
       uses: actions/upload-artifact@v2
       with:
         name: build win64 artifact
